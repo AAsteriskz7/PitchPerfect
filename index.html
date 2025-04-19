@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PitchPerfect - Sales Pitch Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PitchPerfect</h1>
+        <p>Practice your sales pitches with an AI prospect.</p>
+
+       
+        <div id="scenario-setup" class="setup-section">
+            <h2>Scenario Setup</h2>
+            <label for="scenario-select">Choose a Scenario:</label>
+            <select id="scenario-select" name="scenario-select">
+                <option value="custom">Custom Scenario</option>
+                <option value="product_launch">New Product Launch</option>
+                <option value="cold_outreach">Cold Outreach Call</option>
+                <option value="objection_handling">Objection Handling</option>
+                <!-- Add more pre-built scenarios here -->
+            </select>
+            <button id="random-scenario-button">Random Scenario</button>
+
+            <div id="custom-scenario-inputs">
+                <label for="product-name">Product/Service Name:</label>
+                <input type="text" id="product-name" name="product-name" placeholder="e.g., CloudSync Pro">
+                <label for="prospect-type">Prospect Type/Role:</label>
+                <input type="text" id="prospect-type" name="prospect-type" placeholder="e.g., CTO of a mid-size tech company">
+                <label for="scenario-goal">Your Goal for this Pitch:</label>
+                <textarea id="scenario-goal" name="scenario-goal" rows="3" placeholder="e.g., Secure a follow-up meeting to demo the product."></textarea>
+            </div>
+            <button id="start-session-button">Start Practice Session</button>
+        </div>
+
+        <div id="conversation-interface" class="conversation-section hidden">
+            <h2>Practice Session</h2>
+            <div id="transcript-container">
+                <ul id="transcript">
+                    <!-- Conversation will appear here -->
+                </ul>
+            </div>
+            <div id="controls">
+                <button id="mic-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.39-.98.88C16.58 14.86 14.48 17 12 17s-4.58-2.14-4.93-5.12c-.08-.49-.49-.88-.98-.88-.55 0-1 .45-1 1 0 3.03 2.24 5.5 5.11 5.91V21H9c-.55 0-1 .45-1 1s.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1h-1.11v-2.09C16.76 16.5 19 14.03 19 11c0-.55-.45-1-1-1z"/>
+                    </svg>
+                    <span id="mic-status">Start Talking</span>
+                </button>
+                 <p id="ai-status">AI Status: Idle</p>
+                <button id="end-session-button">End Session & Get Feedback</button>
+            </div>
+        </div>
+
+        <div id="feedback-display" class="feedback-section hidden">
+            <h2>Session Feedback</h2>
+            <div id="feedback-content">
+                <h3>Conversation Transcript:</h3>
+                <div id="final-transcript"></div>
+                <h3>Performance Metrics:</h3>
+                <div id="metrics"></div>
+                <h3>Key Moments:</h3>
+                <div id="key-moments"></div>
+                <h3>AI Feedback:</h3>
+                <div id="ai-feedback"></div>
+                <h3>Recommendations:</h3>
+                <div id="recommendations"></div>
+            </div>
+            <button id="new-session-button">Start New Session</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
