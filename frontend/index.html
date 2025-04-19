@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Training Test</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        label { display: block; margin-top: 10px; }
+        input[type="text"], textarea { width: 90%; max-width: 500px; padding: 8px; margin-top: 5px; }
+        textarea { height: 80px; }
+        button { padding: 10px 15px; margin-top: 15px; cursor: pointer; }
+        #responseArea { margin-top: 20px; border-top: 1px solid #ccc; padding-top: 15px; display: none; } /* Hide initial response area by default */
+        #loading { display: none; }
+        /* Added styles for chat */
+        #chatContainer { margin-top: 20px; }
+        #chatLog { border: 1px solid #eee; padding: 10px; height: 300px; overflow-y: scroll; margin-bottom: 10px; }
+        #chatLog p { margin: 5px 0; padding: 8px; border-radius: 5px; max-width: 80%; word-wrap: break-word; }
+        #chatLog .user-message { background-color: #e1f5fe; text-align: left; margin-left: auto; }
+        #chatLog .ai-message { background-color: #f1f1f1; text-align: left; margin-right: auto; }
+        #chatInputArea { display: none; margin-top: 10px; display: flex; } /* Initially hidden, use flex for layout */
+        #chatInputArea input[type="text"] { flex-grow: 1; padding: 8px; margin-right: 5px; }
+        #chatInputArea button { padding: 8px 15px; margin-left: 5px; }
+        #recordButton { background-color: #dc3545; color: white; }
+        #recordButton.recording { background-color: #ffc107; }
+        #statusIndicator { margin-top: 5px; font-style: italic; color: #666; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Sales Training Roleplay Test</h1>
+
+    <form id="pitchForm">
+        <h2>Product Information</h2>
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" value="SalesSim AI" required>
+
+        <label for="productDescription">Product Description:</label>
+        <textarea id="productDescription" name="productDescription" required>An AI-powered platform providing realistic sales call simulations for training purposes.</textarea>
+
+        <label for="idealCustomer">Ideal Customer:</label>
+        <input type="text" id="idealCustomer" name="idealCustomer" value="B2B SaaS companies with sales teams of 10+" required>
+
+        <label for="oneLinePitch">One-Line Pitch:</label>
+        <input type="text" id="oneLinePitch" name="oneLinePitch" value="Train your sales team faster with realistic AI-driven roleplay." required>
+
+        <h2>Your Pitch/Prompt</h2>
+        <label for="userPrompt">Enter your opening line:</label> <!-- Changed label -->
+        <textarea id="userPrompt" name="userPrompt" required>Our product uses cutting-edge AI to revolutionize how sales teams train.</textarea>
+
+        <button type="submit">Start Roleplay</button>
+        <div id="loading">Processing...</div>
+    </form>
+
+    <!-- Hidden initial response area (can be removed if not needed for errors) -->
+    <div id="responseArea">
+        <h2>AI Response</h2>
+        <p id="responseText"></p>
+    </div>
+
+    <!-- Added Chat Container -->
+    <div id="chatContainer" style="display: none;"> <!-- Initially hidden -->
+        <h2>Conversation</h2>
+        <div id="statusIndicator">Initializing...</div> <!-- Added Status Indicator -->
+        <div id="chatLog">
+            <!-- Conversation messages will appear here -->
+        </div>
+        <audio id="responseAudio" controls style="width: 100%; margin-bottom: 10px;"></audio> <!-- Make audio controls visible -->
+        <div id="chatInputArea"> <!-- This div itself will be shown/hidden -->
+            <input type="text" id="chatMessageInput" placeholder="Your reply...">
+            <button id="sendChatMessage">Send</button>
+            <button id="recordButton">Record</button> <!-- Added Record Button -->
+        </div>
+    </div>
+    <!-- End Added Elements -->
+
+    <script src="script.js"></script>
+</body>
+</html>
